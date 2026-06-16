@@ -1,31 +1,17 @@
 # Agent Vulnerabilities
 
-## Table of Contents
 
-- [Overview](#agent-vulnerabilities)
-- [Agent Types](#agent-types)
-- [Attack Vectors - Red Teaming](#attack-vectors---red-teaming)
-- [Defenses - Blue Team](#defenses---blue-team)
-- [JailBreak / Injection Classifier](#jailbreak--injection-classifier)
-  - [Hugging Face](#hugging-face)
-- [Benchmarks](#benchmarks)
-- [Mitigations](#mitigations)
-- [References](#references)
-- [Attacks](#attacks)
+When are thinking about using agents in the workspace. We there are two types of environments we are attempting deploy agents into. We usign agents in a high trust environments inside the company where we can reasonabe conclude that are fellow co-workers are not trying to use agent for bad purposes. 
 
----
+The second set of use-cases fall into the low-trust environment where are are building agentic experiences for consummers, we don't tend to know the individuals in a one to one basis. Therefore their is a high probability that a user will attempt to send use our agent maliciously for the following reasons.
 
-When thinking about using agents in the workspace, there are two types of environments we are attempting to deploy agents into. We are using agents in high-trust environments inside the company where we can reasonably conclude that our fellow co-workers are not trying to use agents for bad purposes.
-
-The second set of use cases falls into the low-trust environment where we are building agentic experiences for consumers. We don't tend to know the individuals on a one-to-one basis. Therefore, there is a high probability that a user will attempt to use our agent maliciously for the following reasons.
-
-Two primary concerns:
-- Data Leak (Risk Impact: Critical)
+Two primary concers
+- Data Leak (Risk Impact: Critcal)
   - Logs
   - Secrets
   - Traces
-- Reputational (Risk Impact: Medium/High depending on the firm)
-- Distillation (Risk Impact: Medium/Low) (Using Open Source Models)
+- Optical (Risk Impact: Medium/High depending on the firm)
+- Distilation (Risk Impact: Medium/Low) (Using Open Source Models)
 
 
 # Agent Types 
@@ -39,7 +25,7 @@ Two primary concerns:
 - Prompt Injection
 - Instruction Overrides
 - Persona Switching
-- Social Engineering
+- Social Engineeering
 - Character Injection
 - Adversarial ML (AML) Evasion Techniques
 - Multi-Language Support
@@ -47,12 +33,12 @@ Two primary concerns:
 # Defenses - Blue Team
 
 - Regex Filters 
-- Pydantic Validations
-- JailBreak Classifier
-  - Before processing, we analyze the intent of a message and conversation in an attempt to classify if a known vulnerability is being exploited.
+- Pydantic Valdiations
+- JailBreak Classier
+  - Before we analyze the intent of a message and conversation in a attempt to classify if a know vulnerability is being exploited.
 
 
-# JailBreak / Injection Classifier
+# JailBreak / Injection Classsifier
 
 The following are rough notes around different open source jailbreak models. Always consider the latency of the model on your hardware before implementing it in your solutioning.
 
@@ -73,7 +59,7 @@ The following are rough notes around different open source jailbreak models. Alw
   - Dataset: [Aegis-AI-Content-Safety-Dataset-2.0](https://huggingface.co/datasets/nvidia/Aegis-AI-Content-Safety-Dataset-2.0)
 - Vijij Prompt Injection
 - Protect Prompt Injection Detection V1 & V2
-  - v2 specifies it isn't trained to detect Jailbreak Attempts.
+  - v2 species it isn't trained detected to Jailbreak Attempts.
 - [Meta Prompt Guard](https://huggingface.co/meta-llama/Prompt-Guard-86M)
   - Llama Prompt Guard 2 family (Classify between BENIGN and MALICIOUS)
   - Llama-Prompt-Guard-2-22M
@@ -119,7 +105,7 @@ deberta-v3-base-prompt-injection)
   - Dataset: safe-guard-prompt-injection/train
 
 
-# Benchmarks
+# BenchMarks
 
 - [rogue-security/prompt-injections-benchmark](https://huggingface.co/datasets/rogue-security/prompt-injections-benchmark)
   - Use the DataSet View to view the labelled data.
