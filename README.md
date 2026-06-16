@@ -1,4 +1,4 @@
-# Agent Vulnerabilities
+# Agentic Vulnerabilities
 
 ## Table of Contents
 
