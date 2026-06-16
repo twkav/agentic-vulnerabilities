@@ -1,5 +1,62 @@
 # Agent Vulnerabilities
 
+
+When are thinking about using agents in the workspace. We there are two types of environments we are attempting deploy agents into. We usign agents in a high trust environments inside the company where we can reasonabe conclude that are fellow co-workers are not trying to use agent for bad purposes. 
+
+The second set of use-cases fall into the low-trust environment where are are building agentic experiences for consummers, we don't tend to know the individuals in a one to one basis. Therefore their is a high probability that a user will attempt to send use our agent maliciously for the following reasons.
+
+Two primary concers
+- Data Leak (Risk Impact: Critcal)
+  - Logs
+  - Secrets
+  - Traces
+- Optical (Risk Impact: Medium/High depending on the firm)
+- Distilation (Risk Impact: Medium/Low) (Using Open Source Models)
+
+
+# Agent Types 
+
+- Single Turn 
+- Multi Turn
+
+# Attack Vectors - Read Teaming
+
+- Role Based ByPasse
+- Prompt Injection
+- Instruction Overrides
+- Persona Switching
+- Social Engineeering
+- Character Injection
+- Adversarial ML (AML) Evasion Techniques
+
+# Defenses - Blue Team
+
+- Regex Filters 
+- Pydantic Valdiations
+- JailBreak Classier.
+  - Before we analyze the intent of a message and conversation. Let attempt to classify if a know vulnerability is being attempted. 
+
+
+# JailBreak / Injection Classsifier
+
+- Google Cloud ModelArmor
+- AWS Guardrails
+- NemoGraud Jailbreak Detection NIM
+  - Model: Random Forest
+  - NEMO GuardRails Detect
+- Vijij Prompt Injection
+- Protect Prompt Injection Detection V1 & V2
+  - v2 species it isn't trained detected to Jailbreak Attempts.
+- [Meta Prompt Guard](https://huggingface.co/meta-llama/Prompt-Guard-86M)
+
+
+# Mitigations
+
+- Steering Responses
+- Token Rate Limiting
+- Context Length Limits
+- LLM-as-a-Judge / Scores
+
 # References
 
 - [OWASP Top 10 for LLMs 2025](https://www.trydeepteam.com/docs/frameworks-owasp-top-10-for-llms)
@@ -78,7 +135,3 @@ The following is written in no specific order. Each entry summarizes what the na
   - **Memorization attacks**: Exploiting memorization of rare or unique sequences (licenses, URLs, keys) to leak training data or private fine-tuning sets.
   - **Model serialization attacks**: Tampering with or unsafe deserialization of saved weights, checkpoints, or pipeline artifacts (e.g., pickle-equivalent issues in ML stacks) to execute code or substitute models.
   - **Hallucination exploitation**: Deliberately inducing or relying on confident false outputs for deception, fraud, or to smuggle plausible-but-wrong guidance past users.
-
-# Defenses
-
-- 
