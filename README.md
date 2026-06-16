@@ -28,6 +28,7 @@ Two primary concers
 - Social Engineeering
 - Character Injection
 - Adversarial ML (AML) Evasion Techniques
+- Multi-Language Support
 
 # Defenses - Blue Team
 
@@ -39,15 +40,76 @@ Two primary concers
 
 # JailBreak / Injection Classsifier
 
+The following are rought notes around different open source jailbreak models. Always consider the latency of the model on your hardware before implementing it in your solutioning.
+
+- [Huggingface Prompt Injection Search](https://huggingface.co/models?other=prompt-injection)
+- [Huggingface Jailbreak Detection](https://huggingface.co/models?other=jailbreak-detection)
+- [Hugging Face Security](https://huggingface.co/models?other=security)
 - Google Cloud ModelArmor
 - AWS Guardrails
-- NemoGraud Jailbreak Detection NIM
+- [NemoGuard-JailbreakDetect](https://huggingface.co/nvidia/NemoGuard-JailbreakDetect)
   - Model: Random Forest
   - NEMO GuardRails Detect
+  - Dataset: Advbench: 520 entries consisting exclusively of red-teamed jailbreaks
+  - Dataset: Wildjailbreak: 6,387 entries balancing benign commands and adversarial prompt
+  - Dataset: jackhao/jailbreak-classification: 1,306 entries of benign and jailbreak datasets
+  - When evaluated on the JailbreakHub dataset, the model achieves an F1 score of 0.9601, a false-positive rate of 0.0042, and a false-negative rate of 0.0435.
+    - Dataset: https://huggingface.co/datasets/walledai/JailbreakHub
+  - Dataset: [Aegis-AI-Content-Safety-Dataset-1.0](https://huggingface.co/datasets/nvidia/Aegis-AI-Content-Safety-Dataset-1.0)
+  - Dataset: [Aegis-AI-Content-Safety-Dataset-2.0](https://huggingface.co/datasets/nvidia/Aegis-AI-Content-Safety-Dataset-2.0)
 - Vijij Prompt Injection
 - Protect Prompt Injection Detection V1 & V2
   - v2 species it isn't trained detected to Jailbreak Attempts.
 - [Meta Prompt Guard](https://huggingface.co/meta-llama/Prompt-Guard-86M)
+  - Llama Prompt Guard 2 family (Classify between BENIGN and MALICIOUS)
+  - Llama-Prompt-Guard-2-22M
+  - Llama-Prompt-Guard-2-86M
+  - Llama Prompt Guard 3 Family
+    - Trained on a broad taxonomy of 13 standardized hazard categories
+    - safe or unsafe followed by violated category codes
+    - Evaluations against the OWASP Top 10 framework show that the compact Llama-Guard-3-1B model achieves a 76% threat detection rate with an average latency of 0.165 seconds and a minimal VRAM footprint of 0.94 GB.
+  - meta-llama/Llama-Guard-3-1B
+  - Llama-Guard-3-8B
+  - Canonical 512-token context window and provide native security coverage across eight major languages, including English, French, German, Hindi, Italian, Portuguese, Spanish, and Thai.
+  - shieldgemma-2b
+    - model is a decoder-only, text-to-text safety content moderation model built on top of the Gemma-2-2B architecture
+  - allenai/wildguard model is a 7-billion-parameter causal model built on mistralai/Mistral-7B-v0.3
+    - Dataset: WildGuardMix. The dataset containing 92,000 labeled examples, WildGuard is designed as a multi-task safety checker.
+ 
+## Hugging Face
+
+- [hlyn-labs/prompt-injection-judge-deberta-70m](https://huggingface.co/hlyn-labs/prompt-injection-judge-deberta-70m)
+- microsoft/deberta-v3-xsmal
+- [deberta-v3-base-prompt-injection](https://huggingface.co/protectai/
+deberta-v3-base-prompt-injection)
+  - Laiyer AI was a cybersecurity startup that developed LLM Guard. 
+  - This model is a fine-tuned version of microsoft/deberta-v3-base.
+- protectai/deberta-v3-base-prompt-injection-v2
+  - Fine-tuned from microsoft/deberta-v3-base
+  - Safety Datasets
+    - Dataset: natolambert/xstest-v2-copy
+    - Dataset:jackhhao/jailbreak-classification
+    - Dataset: OpenSafetyLab/Salad-Data
+  - The model is highly effective at identifying English-language prompt injections. It achieves a post-training evaluation accuracy of 95.25% and a recall of 99.74% on out-of-distribution benchmark distributions
+  - However, its standard FP32 SafeTensors footprint (738 MB) and unquantized ONNX export (739 MB) introduce significant latency penalties, often exceeding 600 ms on standard CPU
+  - HikmaAI/hikmaai-deberta-injection model provides an INT8 dynamically quantized ONNX conversion. This quantization compresses the model footprint to 233 MB, optimizing the network for execution inside low-latency security gateways
+
+- weijianzhg/prompt-injection-classifier
+  - For environments where deep learning runtime dependency is entirely prohibited
+- testsavantai/prompt-injection-defender-tiny-v0
+  - BERT-tiny (4.39M parameters)
+  - BERT-small up to DistilBERT-base and DeBERTa-base variants
+- qualifire/prompt-injection-sentinel
+- vijil/mbert-prompt-injection
+  - Dataset: wildguardmix/train
+  - Dataset: safe-guard-prompt-injection/train
+
+
+# BenchMarks
+
+- [rogue-security/prompt-injections-benchmark](https://huggingface.co/datasets/rogue-security/prompt-injections-benchmark)
+  - Use the DataSet View to view the labelled data.
+
 
 
 # Mitigations
