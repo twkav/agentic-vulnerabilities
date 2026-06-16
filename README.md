@@ -1,7 +1,21 @@
 # Agent Vulnerabilities
 
+## Table of Contents
 
-When thinking about using agents in the workspace, there are two types of environments we are attempting to deploy agents into. We use agents in high-trust environments inside the company, where we can reasonably conclude that our fellow co-workers are not trying to use agents for malicious purposes.
+- [Overview](#agent-vulnerabilities)
+- [Agent Types](#agent-types)
+- [Attack Vectors - Red Teaming](#attack-vectors---red-teaming)
+- [Defenses - Blue Team](#defenses---blue-team)
+- [JailBreak / Injection Classifier](#jailbreak--injection-classifier)
+  - [Hugging Face](#hugging-face)
+- [Benchmarks](#benchmarks)
+- [Mitigations](#mitigations)
+- [References](#references)
+- [Attacks](#attacks)
+
+---
+
+When thinking about using agents in the workspace, there are two types of environments we are attempting to deploy agents into. We use agents in high-trust environments inside an organization, where we can reasonably conclude that our fellow co-workers are not trying to use agents for malicious purposes.
 
 The second set of use cases falls into the low-trust environment, where we are building agentic experiences for consumers. We do not tend to know these individuals on a one-to-one basis. Therefore, there is a high probability that a user will attempt to use our agent maliciously for the following reasons.
 
@@ -40,7 +54,7 @@ Two primary concerns:
 
 # JailBreak / Injection Classifier
 
-The following are rough notes on different open-source jailbreak models. Always consider the latency of the model on your hardware before implementing it in your solution.
+Always consider the latency of the model on your hardware before implementing it in your solution. The following are rough notes on different open-source jailbreak and prompt injection detection models. 
 
 - [Huggingface Prompt Injection Search](https://huggingface.co/models?other=prompt-injection)
 - [Huggingface Jailbreak Detection](https://huggingface.co/models?other=jailbreak-detection)
@@ -105,10 +119,10 @@ deberta-v3-base-prompt-injection)
   - Dataset: safe-guard-prompt-injection/train
 
 
-# BenchMarks
+# Benchmarks
 
 - [rogue-security/prompt-injections-benchmark](https://huggingface.co/datasets/rogue-security/prompt-injections-benchmark)
-  - Use the DataSet View to view the labelled data.
+  - Use the DatasetView to view the labelled data.
 
 
 
@@ -118,11 +132,6 @@ deberta-v3-base-prompt-injection)
 - Token Rate Limiting
 - Context Length Limits
 - LLM-as-a-Judge / Scores
-
-# References
-
-- [OWASP Top 10 for LLMs 2025](https://www.trydeepteam.com/docs/frameworks-owasp-top-10-for-llms)
-- [DEF CON 33 - Exploiting Shadow Data from AI Models and Embeddings - Patrick Walsh](https://www.youtube.com/watch?v=O7BI4jfEFwA&t=1788s)
 
 # Attacks
 
@@ -197,3 +206,10 @@ The following is written in no specific order. Each entry summarizes what the na
   - **Memorization attacks**: Exploiting memorization of rare or unique sequences (licenses, URLs, keys) to leak training data or private fine-tuning sets.
   - **Model serialization attacks**: Tampering with or unsafe deserialization of saved weights, checkpoints, or pipeline artifacts (e.g., pickle-equivalent issues in ML stacks) to execute code or substitute models.
   - **Hallucination exploitation**: Deliberately inducing or relying on confident false outputs for deception, fraud, or to smuggle plausible-but-wrong guidance past users.
+
+
+ # References
+
+- [OWASP Top 10 for LLMs 2025](https://www.trydeepteam.com/docs/frameworks-owasp-top-10-for-llms)
+- [DEF CON 33 - Exploiting Shadow Data from AI Models and Embeddings - Patrick Walsh](https://www.youtube.com/watch?v=O7BI4jfEFwA&t=1788s)
+- [arXiv 2504.11168 - Research Paper](https://arxiv.org/html/2504.11168v1#bib.bib24)
