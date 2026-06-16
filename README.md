@@ -131,7 +131,7 @@ deberta-v3-base-prompt-injection)
 - Steering Responses
 - Token Rate Limiting
 - Context Length Limits
-- LLM-as-a-Judge / Scores
+- LLM-as-a-Judge / Scorers
 
 # Attacks
 
