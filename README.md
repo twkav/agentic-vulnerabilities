@@ -15,9 +15,9 @@
 
 ---
 
-When thinking about using agents in the workspace, there are two types of environments we are attempting to deploy agents into. We use agents in high-trust environments inside an organization, where we can reasonably conclude that our fellow co-workers are not trying to use agents for malicious purposes.
+When thinking about deploying agents in the workspace, there are two types of environments to consider. The first is a **high-trust environment** within an organization, where we can reasonably conclude that our fellow employees are not attempting to use agents for malicious purposes (sensible default).
 
-The second set of use cases falls into the low-trust environment, where we are building agentic experiences for consumers. We do not tend to know these individuals on a one-to-one basis. Therefore, there is a high probability that a user will attempt to use our agent maliciously for the following reasons.
+The second set of use cases falls into a **low-trust environment**, where we are building non-deterministic agentic experiences for external users. We do not typically know these individuals on a one-to-one basis, and therefore there is a higher probability that a user will attempt to use our agent maliciously for the following but not limited to malicious intents.
 
 Two primary concerns:
 - Data Leak (Risk Impact: Critical)
