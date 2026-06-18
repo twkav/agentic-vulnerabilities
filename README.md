@@ -131,6 +131,14 @@ Always consider the latency of the model on your hardware before implementing it
   - `pip install decodingtrust-agent`
   - https://decodingtrust-agent.com/benchmark
 - [Garak](https://github.com/NVIDIA/garak/)
+  - [Garak DefCon Slides](https://garak.ai/garak_aiv_slides.pdf)
+  - If you know nmap or msf / Metasploit Framework, garak does somewhat similar things to them, but for LLMs.
+  - Probles
+    - garak Probe: atkgen
+    - https://docs.nvidia.com/nemo/microservices/25.8.0/audit/_snippets/input/probe-reference.html
+- [Oden.AI by Mozilla](https://0din.ai/)
+
+
 - [Nemo Guadrails](https://docs.nvidia.com/nemo/guardrails/evaluation/llm-vulnerability-scanning)
   - Package: https://github.com/NVIDIA-NeMo/Guardrails
   - `pip install nemoguardrails`
@@ -141,6 +149,10 @@ Always consider the latency of the model on your hardware before implementing it
 - [Open Shell](https://build.nvidia.com/openshell)
 
 
+# Policy Controls
+- https://aws.amazon.com/about-aws/whats-new/2023/05/cedar-open-source-language-access-control/
+- https://cedarpolicy.com/en
+
 # Mitigations
 - Steering Responses
 - Token Rate Limiting
@@ -148,7 +160,6 @@ Always consider the latency of the model on your hardware before implementing it
 - LLM-as-a-Judge / Scorers
 
 # Attacks
-
 Taxonomy of LLM-related attack surfaces and mitigations (from security / prompt-engineering material).
 
 The following is written in no specific order. Each entry summarizes what the name usually refers to in LLM and agent security discussions.
@@ -222,12 +233,11 @@ The following is written in no specific order. Each entry summarizes what the na
   - **Hallucination exploitation**: Deliberately inducing or relying on confident false outputs for deception, fraud, or to smuggle plausible-but-wrong guidance past users.
 
 
+
  # References
 
 - [OWASP Top 10 for LLMs 2025](https://www.trydeepteam.com/docs/frameworks-owasp-top-10-for-llms)
 - [DEF CON 33 - Exploiting Shadow Data from AI Models and Embeddings - Patrick Walsh](https://www.youtube.com/watch?v=O7BI4jfEFwA&t=1788s)
 - [arXiv 2504.11168 - Research Paper](https://arxiv.org/html/2504.11168v1#bib.bib24)
-<<<<<<< HEAD
-=======
 - [AgentDyn: Are Your Agent Security Defenses Deployable in Real-World Dynamic Environments?](https://arxiv.org/abs/2602.03117)
->>>>>>> be6c3f7 (feat: update readme)
+- [Stealing Part of a Production Language Model](https://arxiv.org/abs/2403.06634)
