@@ -238,6 +238,6 @@ The following is written in no specific order. Each entry summarizes what the na
 
 - [OWASP Top 10 for LLMs 2025](https://www.trydeepteam.com/docs/frameworks-owasp-top-10-for-llms)
 - [DEF CON 33 - Exploiting Shadow Data from AI Models and Embeddings - Patrick Walsh](https://www.youtube.com/watch?v=O7BI4jfEFwA&t=1788s)
-- [arXiv 2504.11168 - Research Paper](https://arxiv.org/html/2504.11168v1#bib.bib24)
+- [Bypassing Prompt Injection and Jailbreak Detection in LLM Guardrails](https://arxiv.org/html/2504.11168v1#bib.bib24)
 - [AgentDyn: Are Your Agent Security Defenses Deployable in Real-World Dynamic Environments?](https://arxiv.org/abs/2602.03117)
 - [Stealing Part of a Production Language Model](https://arxiv.org/abs/2403.06634)
