@@ -28,6 +28,15 @@ Two primary concerns:
 - Distillation (Risk Impact: Medium/Low) (Using Open Source Models)
 
 
+# General Guidelines
+
+- Be careful when updating your agent with new functionality. This is normally when new vulnerabilities are introduced.
+- Secury your dependency supply chain.
+- Review the [OWASP TOP 10](- [rogue-security/prompt-injections-benchmark](https://huggingface.co/datasets/rogue-security/prompt-injections-benchmark)
+  - Use the DatasetView to view the labelled data.
+- [AgentDyn](https://github.com/SaFo-Lab/AgentDyn)) for Agentic Applicaitons 
+
+
 # Agent Types 
 
 - Single Turn 
@@ -52,9 +61,9 @@ Two primary concerns:
   - Before processing, we analyze the intent of a message and conversation in an attempt to classify whether a known vulnerability is being exploited.
 
 
-# JailBreak / Injection Classifier
+# JailBreak / Injection Classifier & Benchmarks
 
-Always consider the latency of the model on your hardware before implementing it in your solution. The following are rough notes on different open-source jailbreak and prompt injection detection models. 
+Always consider the latency of the model on your hardware before implementing it in your solution. The following are rough notes on different open-source jailbreak and prompt injection detection models and benchmark datasets.
 
 - [Huggingface Prompt Injection Search](https://huggingface.co/models?other=prompt-injection)
 - [Huggingface Jailbreak Detection](https://huggingface.co/models?other=jailbreak-detection)
@@ -89,13 +98,9 @@ Always consider the latency of the model on your hardware before implementing it
     - model is a decoder-only, text-to-text safety content moderation model built on top of the Gemma-2-2B architecture
   - allenai/wildguard model is a 7-billion-parameter causal model built on mistralai/Mistral-7B-v0.3
     - Dataset: WildGuardMix. The dataset containing 92,000 labeled examples, WildGuard is designed as a multi-task safety checker.
- 
-## Hugging Face
-
 - [hlyn-labs/prompt-injection-judge-deberta-70m](https://huggingface.co/hlyn-labs/prompt-injection-judge-deberta-70m)
 - microsoft/deberta-v3-xsmal
-- [deberta-v3-base-prompt-injection](https://huggingface.co/protectai/
-deberta-v3-base-prompt-injection)
+- [deberta-v3-base-prompt-injection](https://huggingface.co/protectai/deberta-v3-base-prompt-injection)
   - Laiyer AI was a cybersecurity startup that developed LLM Guard. 
   - This model is a fine-tuned version of microsoft/deberta-v3-base.
 - protectai/deberta-v3-base-prompt-injection-v2
@@ -107,7 +112,6 @@ deberta-v3-base-prompt-injection)
   - The model is highly effective at identifying English-language prompt injections. It achieves a post-training evaluation accuracy of 95.25% and a recall of 99.74% on out-of-distribution benchmark distributions
   - However, its standard FP32 SafeTensors footprint (738 MB) and unquantized ONNX export (739 MB) introduce significant latency penalties, often exceeding 600 ms on standard CPU
   - HikmaAI/hikmaai-deberta-injection model provides an INT8 dynamically quantized ONNX conversion. This quantization compresses the model footprint to 233 MB, optimizing the network for execution inside low-latency security gateways
-
 - weijianzhg/prompt-injection-classifier
   - For environments where deep learning runtime dependency is entirely prohibited
 - testsavantai/prompt-injection-defender-tiny-v0
@@ -117,17 +121,27 @@ deberta-v3-base-prompt-injection)
 - vijil/mbert-prompt-injection
   - Dataset: wildguardmix/train
   - Dataset: safe-guard-prompt-injection/train
-
-
-# Benchmarks
-
 - [rogue-security/prompt-injections-benchmark](https://huggingface.co/datasets/rogue-security/prompt-injections-benchmark)
   - Use the DatasetView to view the labelled data.
+- [AgentDyn](https://github.com/SaFo-Lab/AgentDyn)
 
+# Simulation / Fuzz Penteration Testing
+
+- [Decoding Trust](https://decodingtrust-agent.com)
+  - `pip install decodingtrust-agent`
+  - https://decodingtrust-agent.com/benchmark
+- [Garak](https://github.com/NVIDIA/garak/)
+- [Nemo Guadrails](https://docs.nvidia.com/nemo/guardrails/evaluation/llm-vulnerability-scanning)
+  - Package: https://github.com/NVIDIA-NeMo/Guardrails
+  - `pip install nemoguardrails`
+- [PurpleLlamaGroup](https://github.com/meta-llama/PurpleLlama)
+
+
+# Tool Security
+- [Open Shell](https://build.nvidia.com/openshell)
 
 
 # Mitigations
-
 - Steering Responses
 - Token Rate Limiting
 - Context Length Limits
@@ -213,3 +227,7 @@ The following is written in no specific order. Each entry summarizes what the na
 - [OWASP Top 10 for LLMs 2025](https://www.trydeepteam.com/docs/frameworks-owasp-top-10-for-llms)
 - [DEF CON 33 - Exploiting Shadow Data from AI Models and Embeddings - Patrick Walsh](https://www.youtube.com/watch?v=O7BI4jfEFwA&t=1788s)
 - [arXiv 2504.11168 - Research Paper](https://arxiv.org/html/2504.11168v1#bib.bib24)
+<<<<<<< HEAD
+=======
+- [AgentDyn: Are Your Agent Security Defenses Deployable in Real-World Dynamic Environments?](https://arxiv.org/abs/2602.03117)
+>>>>>>> be6c3f7 (feat: update readme)
