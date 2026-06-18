@@ -137,6 +137,10 @@ Always consider the latency of the model on your hardware before implementing it
     - garak Probe: atkgen
     - https://docs.nvidia.com/nemo/microservices/25.8.0/audit/_snippets/input/probe-reference.html
 - [Oden.AI by Mozilla](https://0din.ai/)
+  - Real Time Jailbreak Feed
+  - [AI Scanner](https://github.com/0din-ai/ai-scanner?utm_source=0din.ai&utm_medium=open_source_scanner&utm_campaign=opensourcescanner&utm_content=get_started#quick-start)
+  
+
 
 
 - [Nemo Guadrails](https://docs.nvidia.com/nemo/guardrails/evaluation/llm-vulnerability-scanning)
